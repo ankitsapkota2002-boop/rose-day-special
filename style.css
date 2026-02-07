@@ -1,0 +1,127 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Caveat', cursive;
+  min-height:100vh;
+  color:#fff;
+  background:#0d0015;
+}
+
+
+#bg-video {
+  position: fixed;
+  inset: 4%;                 /* ≈ 4–5% margin on all sides for smaller feel */
+  width: auto;
+  height: auto;
+  max-width: 92%;
+  max-height: 92%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  z-index: -2;
+  background: #0d0015;
+}
+.overlay {
+  position:fixed;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(30,0,60,0.45), rgba(80,0,120,0.65) 40%, rgba(120,20,160,0.75));
+  z-index:-1;
+}
+
+.content {
+  position:relative;
+  z-index:1;
+  padding:4vh 5vw 10vh;
+  text-align:center;
+}
+
+h1 {
+  font-family:'Dancing Script', cursive;
+  font-size:clamp(3.8rem,9vw,7rem);
+  color:#ffd1dc;
+  text-shadow:0 0 30px #ff69b480;
+  animation:gentleFloat 12s ease-in-out infinite;
+  margin:0 0 1rem;
+}
+
+.letter {
+  max-width:620px;
+  margin:2rem auto 3rem;
+  padding:2.2rem;
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,182,193,0.25);
+  border-radius:24px;
+  box-shadow:0 10px 35px #0004, inset 0 0 25px #ff69b414;
+  animation:fadeInUp 1.3s 0.3s forwards;
+  opacity:0;
+}
+
+.letter p { font-size:1.45rem; line-height:1.6; margin:1.1em 0; color:#f9e0e8; text-shadow:0 1px 5px #0009; }
+
+.opening     { font-size:2.1rem; color:#ffccdd; margin-bottom:1.6rem; font-weight:700; }
+.highlight   { color:#ff99cc; font-weight:bold; font-size:1.6rem; }
+.heart-line  { font-size:1.85rem; color:#ffb6c1; margin:1.8rem 0; font-weight:700; }
+.closing     { margin-top:2rem; font-size:1.7rem; }
+.love-you    { color:#ff85b3; font-size:2rem; font-weight:700; display:block; margin:0.5em 0; }
+
+.heart {
+  font-size:5rem;
+  color:#ff4785;
+  margin:1.5rem 0 2.5rem;
+  animation:heartbeat 2.1s infinite;
+  text-shadow:0 0 20px #ff4785aa;
+}
+
+.sign  { font-size:1.65rem; color:#ffe4e9; }
+.name  { font-size:2.2rem; color:#ff99cc; font-weight:bold; text-shadow:0 0 18px #ff99ccaa; }
+
+.roses .rose {
+  position:absolute;
+  font-size:3.4rem;
+  opacity:0.4;
+  pointer-events:none;
+  animation:float 20s infinite linear;
+}
+
+.rose-1 { top:10%;  left:6%;  animation-duration:24s; animation-delay:-5s; }
+.rose-2 { top:25%; right:8%;  animation-duration:28s; animation-delay:-11s; }
+.rose-3 { bottom:15%; left:10%; animation-duration:21s; animation-delay:-16s; }
+
+.tiny-hearts {
+  margin:2.5rem 0;
+  font-size:2.6rem;
+  color:#ff85b3;
+  opacity:0.75;
+}
+.tiny-hearts span { margin:0 0.8rem; animation:twinkle 4s infinite; }
+
+.more {
+  margin-top:5rem;
+  padding:2rem;
+  background:rgba(255,255,255,0.04);
+  border-radius:20px;
+  max-width:650px;
+}
+.more h2 { font-size:2.8rem; color:#ffccdd; margin-bottom:1.2rem; }
+
+/* Animations */
+@keyframes fadeInUp    { to { opacity:1; transform:translateY(0); } }
+@keyframes gentleFloat  { 50% { transform:translateY(-16px) rotate(2deg); } }
+@keyframes heartbeat    { 40%,60% { transform:scale(1.18); } }
+@keyframes float {
+  0%   { transform:translate(0,0) rotate(0deg); opacity:0.4; }
+  50%  { transform:translate(70px,-160px) rotate(180deg); opacity:0.85; }
+  100% { transform:translate(-50px,-340px) rotate(360deg); opacity:0; }
+}
+@keyframes twinkle     { 50% { opacity:1; } }
+
+/* Mobile */
+@media (max-width:600px) {
+  h1           { font-size:clamp(3rem,11vw,5.2rem); }
+  .letter      { padding:1.8rem 1.4rem; }
+  .letter p    { font-size:1.35rem; }
+  .heart       { font-size:4rem; }
+  .sign        { font-size:1.5rem; }
+  .name        { font-size:2rem; }
+}
